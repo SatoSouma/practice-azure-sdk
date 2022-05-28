@@ -1,11 +1,17 @@
 import 'dotenv/config'
-import { DefaultAzureCredential } from '@azure/identity'
+import { DefaultAzureCredential, InteractiveBrowserCredential } from '@azure/identity'
 import { NetworkInterface, NetworkManagementClient, Subnet, VirtualNetwork } from '@azure/arm-network'
 
 const subscriptionId = process.env.subscriptionId
-const credential = new DefaultAzureCredential()
-const resourceGroupName = 'myjstest'
-const location = 'eastus'
+
+const credential = new InteractiveBrowserCredential({
+  // tenantId: process.env.tenantId,
+  // clientId: process.env.clientId,
+  redirectUri: 'http://localhost:1337',
+})
+
+const resourceGroupName = 'soma-practice'
+const location = 'japanwest'
 const subnet_name = 'subnetnamex'
 const interface_name = 'interfacex'
 const network_name = 'networknamex'
