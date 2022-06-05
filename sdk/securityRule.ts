@@ -12,6 +12,7 @@ const clientId = process.env.AZURE_CLIENT_ID
 // シークレットキー
 const secretKey = process.env.AZURE_CLIENT_SECRET
 
+//ネットワークのクラス(インターフェース)を定義
 let network_client: NetworkManagementClient
 
 const securityRuleAdd = async (resourceGroupName: string, networkSecurityGroupName: string, securityRuleName: string) => {
